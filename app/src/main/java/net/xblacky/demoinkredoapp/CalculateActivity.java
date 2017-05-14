@@ -65,8 +65,16 @@ public class CalculateActivity extends AppCompatActivity {
                     Toast.makeText(CalculateActivity.this,"Please Enter Duration",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                InputMethodManager imm = (InputMethodManager)getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(getWindow().getCurrentFocus().getWindowToken(), 0);
+                try{
+                    InputMethodManager imm = (InputMethodManager)getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getWindow().getCurrentFocus().getWindowToken(), 0);
+
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+
                 principleValue= Float.parseFloat(principle.getText().toString());
                 durationValue= Integer.parseInt(duration.getText().toString());
 
