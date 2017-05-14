@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -63,6 +65,8 @@ public class CalculateActivity extends AppCompatActivity {
                     Toast.makeText(CalculateActivity.this,"Please Enter Duration",Toast.LENGTH_SHORT).show();
                     return;
                 }
+                InputMethodManager imm = (InputMethodManager)getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getWindow().getCurrentFocus().getWindowToken(), 0);
                 principleValue= Float.parseFloat(principle.getText().toString());
                 durationValue= Integer.parseInt(duration.getText().toString());
 
